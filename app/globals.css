@@ -1,46 +1,88 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@theme inline {
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --color-bg: #f5f0e8;
+  --color-dark: #1a1a1a;
+  --color-skin: #c9a87c;
+  --color-skin-dim: #b08f65;
+  --color-muted: #8a7e6e;
+  --color-surface: #eee8db;
+  --color-border: rgba(26, 26, 26, 0.08);
+}
 
-:root { --skin: #c9a87c; --cream: #f5f0e8; --dark: #1a1a1a; }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { background: var(--cream); color: var(--dark); font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
-::selection { background: var(--skin); color: white; }
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { background: var(--color-bg); color: var(--color-dark); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  ::selection { background: var(--color-skin); color: white; }
+}
 
-/* Subtle wrongness */
-.wrong { font-feature-settings: 'kern' off; letter-spacing: 0.01em; }
+/* ── The "almost right" wobble ── */
+@keyframes almostRight {
+  0%, 94%, 100% { transform: none; }
+  95% { transform: skewX(0.2deg) translateX(0.5px); }
+  97% { transform: skewX(-0.15deg); }
+}
+.almost { animation: almostRight 10s ease-in-out infinite; }
 
-.uncanny-card {
-  background: rgba(201, 168, 124, 0.06);
-  border: 1px solid rgba(201, 168, 124, 0.15);
+/* ── Uncanny face ── */
+.face-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  max-width: 200px;
+  margin: 0 auto;
+}
+.face-cell {
+  aspect-ratio: 1;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  transition: all 0.5s;
+}
+.face-cell:hover {
+  background: rgba(201, 168, 124, 0.15);
+  transform: scale(1.02);
+}
+
+/* ── Evidence Card ── */
+.evidence {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
   transition: all 0.4s;
 }
-.uncanny-card:hover {
-  background: rgba(201, 168, 124, 0.12);
-  border-color: rgba(201, 168, 124, 0.3);
-  transform: scale(1.01);
+.evidence:hover {
+  box-shadow: 0 4px 20px rgba(26, 26, 26, 0.06);
+  transform: translateY(-2px);
 }
 
-/* Almost-right animation */
-@keyframes almostRight {
-  0%, 95%, 100% { transform: none; }
-  96% { transform: skewX(0.3deg) translateX(1px); }
-  98% { transform: skewX(-0.2deg); }
+/* ── Percentage bar ── */
+.pct-bar {
+  height: 3px;
+  background: var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 0.5rem;
 }
-.almost-right { animation: almostRight 8s ease-in-out infinite; }
+.pct-fill {
+  height: 100%;
+  background: var(--color-skin);
+  border-radius: 2px;
+  transition: width 1s ease;
+}
 
+/* ── Animations ── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.fade-up { animation: fadeUp 0.6s ease-out forwards; opacity: 0; }
-.fade-up-1 { animation-delay: 0.1s; }
-.fade-up-2 { animation-delay: 0.2s; }
-.fade-up-3 { animation-delay: 0.3s; }
-.fade-up-4 { animation-delay: 0.4s; }
+.anim-up { animation: fadeUp 0.8s ease-out both; }
+.d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.2s; } .d3 { animation-delay: 0.35s; } .d4 { animation-delay: 0.5s; }
 
-.section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(201, 168, 124, 0.3), transparent); max-width: 500px; margin: 0 auto; }
-
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--cream); }
-::-webkit-scrollbar-thumb { background: rgba(201, 168, 124, 0.4); border-radius: 2px; }
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-skin); border-radius: 2px; }

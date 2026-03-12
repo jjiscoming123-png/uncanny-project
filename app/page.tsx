@@ -2,149 +2,133 @@
 
 import Logo from "@/components/Logo";
 
-const OBSERVATIONS = [
-  { text: "The photo looks real. But the fingers have six joints.", icon: "🖐" },
-  { text: "The voice sounds human. But it never takes a breath.", icon: "🗣" },
-  { text: "The smile is perfect. Exactly perfect. That's the problem.", icon: "😊" },
-  { text: "The news article exists. The journalist doesn't.", icon: "📰" },
-];
-
-const MANIFESTO = [
-  {
-    num: "01",
-    title: "You can feel it before you can name it",
-    text: "Something is off. You can't point to what exactly. The lighting is right, the words are right, the face is right. But your gut says no. That instinct is the last firewall between you and total synthetic reality.",
-  },
-  {
-    num: "02",
-    title: "The valley gets deeper every day",
-    text: "In 2024, you could spot AI images in seconds. In 2025, it took minutes. Now? You're not sure about anything. The uncanny valley isn't getting smaller — we're falling deeper into it.",
-  },
-  {
-    num: "03",
-    title: "Real became a spectrum",
-    text: "'Is this real?' used to be a yes-or-no question. Now it's a percentage. 90% real. 95% real. 99.7% real. We don't live in reality anymore — we live in probability.",
-  },
-  {
-    num: "04",
-    title: "UNCANNY is the last honest word",
-    text: "Not fake. Not real. Uncanny. The word for the gap between what your eyes see and what your instinct knows. In a world that's almost real, uncanny is the only truth left.",
-  },
-];
-
-export default function Home() {
+export default function Page() {
   return (
     <>
-      {/* Nav */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-[#f5f0e8]/80 border-b border-[#c9a87c]/15">
-        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Logo size={28} />
-            <span className="font-semibold text-sm text-[#1a1a1a]/70 tracking-wide wrong">UNCANNY</span>
-          </div>
-          <a href="https://x.com/UncannyCoin" target="_blank" rel="noopener noreferrer"
-            className="text-xs px-4 py-1.5 border border-[#c9a87c]/30 text-[#1a1a1a]/60 rounded-full hover:bg-[#c9a87c]/10 transition-all">
-            Follow
-          </a>
+      {/* ── NAV ── */}
+      <nav className="fixed top-0 inset-x-0 z-50 bg-[var(--color-bg)]/80 backdrop-blur-sm border-b border-[var(--color-border)] px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Logo size={22} />
+          <span className="text-[11px] font-medium tracking-wide text-[var(--color-dark)]/50 almost">UNCANNY</span>
         </div>
+        <a href="https://x.com/UncannyCoin" target="_blank" rel="noopener noreferrer"
+          className="text-[11px] font-semibold text-[var(--color-bg)] bg-[var(--color-dark)] px-4 py-1.5 rounded-full hover:bg-[var(--color-dark)]/80 transition-colors">
+          Follow
+        </a>
       </nav>
 
-      {/* Hero */}
-      <section className="min-h-screen flex items-center justify-center px-6 pt-16">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="fade-up fade-up-1 mb-8">
-            <Logo size={72} className="mx-auto almost-right" />
+      {/* ── HERO ── */}
+      <section className="min-h-[100svh] flex items-center justify-center px-6 pt-16">
+        <div className="max-w-lg text-center">
+          {/* Face grid - slightly wrong */}
+          <div className="face-grid mb-10 anim-up d1 almost">
+            <div className="face-cell">👁</div>
+            <div className="face-cell" style={{ transform: 'translateY(-2px)' }}>👁</div>
+            <div className="face-cell col-span-2 !rounded-b-xl">
+              <span style={{ transform: 'scaleY(0.85)' }}>👄</span>
+            </div>
           </div>
-          <p className="fade-up fade-up-1 text-[#c9a87c] text-xs font-medium tracking-[0.3em] uppercase mb-4">
-            Something is not quite right
-          </p>
-          <h1 className="fade-up fade-up-2 text-5xl md:text-7xl font-black tracking-tight leading-[1.1] mb-6 text-[#1a1a1a]">
-            Almost <span className="text-[#c9a87c] wrong">real</span>
+          <p className="text-[10px] text-[var(--color-skin)] tracking-[0.3em] uppercase mb-4 anim-up d1">Something is not quite right</p>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 anim-up d2 leading-tight almost">
+            Almost <span className="text-[var(--color-skin)] italic">real.</span>
           </h1>
-          <p className="fade-up fade-up-3 text-lg text-[#1a1a1a]/50 max-w-lg mx-auto leading-relaxed mb-10">
-            You can feel it, can&apos;t you? Something about this page.
-            <br />
-            Something about everything, lately.
+          <p className="text-[var(--color-muted)] mb-8 anim-up d3 leading-relaxed">
+            You can feel it, can&apos;t you? Something about everything lately.
+            The photo that&apos;s too perfect. The voice that never breathes.
+            The smile that&apos;s exactly right — and that&apos;s the problem.
           </p>
-          <div className="fade-up fade-up-4">
-            <a href="https://x.com/UncannyCoin" target="_blank" rel="noopener noreferrer"
-              className="inline-block px-8 py-3 bg-[#1a1a1a] text-[#f5f0e8] font-semibold rounded-full hover:bg-[#1a1a1a]/90 transition-all text-sm">
-              Look Closer →
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Observations */}
-      <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="section-divider mb-16" />
-          <h2 className="text-center text-2xl md:text-3xl font-bold text-[#1a1a1a] mb-12 tracking-tight">
-            Signs You&apos;re Already in the Valley
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {OBSERVATIONS.map((o, i) => (
-              <div key={i} className="uncanny-card rounded-xl p-6">
-                <div className="text-2xl mb-3">{o.icon}</div>
-                <p className="text-sm text-[#1a1a1a]/70 leading-relaxed">{o.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Manifesto */}
-      <section className="py-24 px-6">
-        <div className="max-w-3xl mx-auto">
-          <div className="section-divider mb-16" />
-          <p className="text-center text-[#c9a87c]/60 text-xs tracking-[0.3em] uppercase mb-4">The Manifesto</p>
-          <h2 className="text-center text-2xl md:text-3xl font-bold text-[#1a1a1a] mb-16 tracking-tight">
-            Why UNCANNY Exists
-          </h2>
-          <div className="space-y-12">
-            {MANIFESTO.map((m) => (
-              <div key={m.num} className="group">
-                <div className="flex items-start gap-6">
-                  <span className="text-[#c9a87c]/30 text-xs font-bold mt-1 shrink-0">{m.num}</span>
-                  <div>
-                    <h3 className="text-lg font-bold text-[#1a1a1a] mb-3 group-hover:text-[#c9a87c] transition-colors">{m.title}</h3>
-                    <p className="text-sm text-[#1a1a1a]/60 leading-relaxed">{m.text}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-32 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="section-divider mb-16" />
-          <h2 className="text-3xl md:text-4xl font-black text-[#1a1a1a] mb-4 tracking-tight">
-            Trust your <span className="text-[#c9a87c] wrong">instinct</span>
-          </h2>
-          <p className="text-sm text-[#1a1a1a]/50 mb-10">
-            In a world where everything looks real, your gut feeling is the last truth detector.
-          </p>
-          <a href="https://x.com/UncannyCoin" target="_blank" rel="noopener noreferrer"
-            className="inline-block px-10 py-3.5 bg-[#1a1a1a] text-[#f5f0e8] font-semibold rounded-full hover:bg-[#1a1a1a]/90 transition-all text-sm">
-            Something Feels Off →
+          <a href="#evidence" className="text-sm font-semibold text-[var(--color-bg)] bg-[var(--color-dark)] px-6 py-3 rounded-full hover:bg-[var(--color-dark)]/80 transition-colors anim-up d4">
+            Look Closer ↓
           </a>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-[#c9a87c]/15 py-6 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <Logo size={18} />
-            <span className="text-xs text-[#1a1a1a]/30">UNCANNY</span>
+      {/* ── REALITY PERCENTAGE ── */}
+      <section className="py-16 md:py-24 px-6 border-t border-[var(--color-border)]">
+        <div className="max-w-md mx-auto text-center">
+          <p className="text-[10px] text-[var(--color-skin)] tracking-[0.3em] uppercase mb-6">Reality Index</p>
+          <div className="space-y-6">
+            {[
+              { year: "2023", pct: 85, label: "You could spot AI in seconds" },
+              { year: "2024", pct: 60, label: "It took a few minutes" },
+              { year: "2025", pct: 30, label: "You had to really look" },
+              { year: "2026", pct: 5, label: "You're not sure about anything" },
+            ].map((item) => (
+              <div key={item.year} className="text-left">
+                <div className="flex justify-between text-sm mb-1">
+                  <span className="font-medium text-[var(--color-dark)]">{item.year}</span>
+                  <span className="text-[var(--color-muted)] text-xs">{item.label}</span>
+                </div>
+                <div className="pct-bar">
+                  <div className="pct-fill" style={{ width: `${item.pct}%` }} />
+                </div>
+                <p className="text-right text-[10px] text-[var(--color-skin)] mt-1">{item.pct}% detectable</p>
+              </div>
+            ))}
           </div>
-          <p className="text-[10px] text-[#1a1a1a]/20 wrong">This page was definitely made by a human. Probably.</p>
-          <a href="https://x.com/UncannyCoin" target="_blank" rel="noopener noreferrer"
-            className="text-xs text-[#1a1a1a]/30 hover:text-[#c9a87c] transition-colors">𝕏</a>
         </div>
+      </section>
+
+      {/* ── EVIDENCE ── */}
+      <section id="evidence" className="py-16 md:py-24 px-6 border-t border-[var(--color-border)]">
+        <div className="max-w-lg mx-auto">
+          <p className="text-[10px] text-[var(--color-skin)] tracking-[0.3em] uppercase mb-3">Signs</p>
+          <h2 className="text-2xl font-bold mb-8">Things That Are Almost Right</h2>
+          <div className="space-y-3">
+            {[
+              { emoji: "🖐", text: "The photo looks real. But the fingers have six joints." },
+              { emoji: "🗣", text: "The voice sounds human. But it never takes a breath." },
+              { emoji: "📰", text: "The article is well-written. The journalist doesn't exist." },
+              { emoji: "😊", text: "The smile is perfect. Exactly perfect. That's the problem." },
+              { emoji: "🎵", text: "The song is catchy. Nobody wrote it." },
+              { emoji: "💬", text: "The reply is thoughtful. It was generated in 0.3 seconds." },
+            ].map((item, i) => (
+              <div key={i} className="evidence flex items-start gap-4 almost">
+                <span className="text-xl shrink-0 mt-0.5">{item.emoji}</span>
+                <p className="text-sm text-[var(--color-muted)] leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── THE THESIS ── */}
+      <section className="py-16 md:py-24 px-6 bg-[var(--color-surface)] border-t border-[var(--color-border)]">
+        <div className="max-w-xl mx-auto space-y-12">
+          {[
+            { t: "Real became a spectrum.", d: "'Is this real?' used to be yes-or-no. Now it's a percentage. 90% real. 99.7% real. We don't live in reality anymore — we live in probability." },
+            { t: "Your gut is the last firewall.", d: "Something is off. You can't point to what. The lighting is right, the words are right, the face is right. But your gut says no. That instinct is the last thing standing between you and total synthetic reality." },
+            { t: "Uncanny is the only honest word left.", d: "Not fake. Not real. Uncanny. The word for the gap between what your eyes see and what your instinct knows. In a world that's almost real, uncanny is the only truth." },
+          ].map((item, i) => (
+            <div key={i} className="group">
+              <h3 className="text-lg font-bold mb-2 group-hover:text-[var(--color-skin)] transition-colors">{item.t}</h3>
+              <p className="text-sm text-[var(--color-muted)] leading-relaxed">{item.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-20 md:py-28 px-6 text-center border-t border-[var(--color-border)]">
+        <h2 className="text-3xl font-bold mb-3 almost">
+          Trust your <span className="text-[var(--color-skin)] italic">instinct.</span>
+        </h2>
+        <p className="text-sm text-[var(--color-muted)] mb-8 max-w-sm mx-auto">
+          In a world where everything looks real, your gut feeling is the last truth detector.
+        </p>
+        <a href="https://x.com/UncannyCoin" target="_blank" rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-bg)] bg-[var(--color-dark)] px-6 py-3 rounded-full hover:bg-[var(--color-dark)]/80 transition-colors">
+          <span>𝕏</span> Something Feels Off
+        </a>
+      </section>
+
+      {/* ── FOOTER ── */}
+      <footer className="border-t border-[var(--color-border)] py-6 px-6 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Logo size={14} />
+          <span className="text-[9px] text-[var(--color-dark)]/30">UNCANNY</span>
+        </div>
+        <p className="text-[9px] text-[var(--color-dark)]/20 italic almost">This page was definitely made by a human. Probably.</p>
       </footer>
     </>
   );
