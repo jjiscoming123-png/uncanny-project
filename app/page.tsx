@@ -11,7 +11,7 @@ export default function Page() {
           <Logo size={22} />
           <span className="text-[11px] font-medium tracking-wide text-[var(--color-dark)]/50 almost">UNCANNY</span>
         </div>
-        <a href="https://x.com/UncannyCoin" target="_blank" rel="noopener noreferrer"
+        <a href="https://x.com/uncannyxyz" target="_blank" rel="noopener noreferrer"
           className="text-[11px] font-semibold text-[var(--color-bg)] bg-[var(--color-dark)] px-4 py-1.5 rounded-full hover:bg-[var(--color-dark)]/80 transition-colors">
           Follow
         </a>
@@ -116,7 +116,7 @@ export default function Page() {
         <p className="text-sm text-[var(--color-muted)] mb-8 max-w-sm mx-auto">
           In a world where everything looks real, your gut feeling is the last truth detector.
         </p>
-        <a href="https://x.com/UncannyCoin" target="_blank" rel="noopener noreferrer"
+        <a href="https://x.com/uncannyxyz" target="_blank" rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-bg)] bg-[var(--color-dark)] px-6 py-3 rounded-full hover:bg-[var(--color-dark)]/80 transition-colors">
           <span>𝕏</span> Something Feels Off
         </a>
